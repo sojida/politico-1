@@ -25,6 +25,10 @@ class validate {
     return name ? (/^[A-Za-z\s]+$/.test(name)) : false;
   }
 
+  static trim(string) {
+    return string.replace(/^\s+|\s+$/gm, '');
+  }
+
   /**
 	 * @description check if string is digit
 	 * @param {string} string

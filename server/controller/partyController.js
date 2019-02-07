@@ -16,20 +16,23 @@ export default class partyController {
   * @returns promise
   */
   static create(request, response) {
-    const { hqAddress, name, logoUrl } = request.body;
-    if (!validate.isName(name)) {
+    const hqAddress = validate.trim(request.body.hqAddress.trim());
+    const name = validate.trim(request.body.name.trim());
+    const logoUrl = validate.trim(request.body.logoUrl.trim());
+
+    if (!validate.isName(name.trim())) {
       return responseController.response({
         status: 400,
         message: 'empty or incorrect name format'
       }, null, response);
     }
-    if (!validate.isAddress(hqAddress)) {
+    if (!validate.isAddress(hqAddress.trim())) {
       return responseController.response({
         status: 400,
         message: 'empty or  incorrect hqAddress format'
       }, null, response);
     }
-    if (!logoUrl) {
+    if (!logoUrl.trim()) {
       return responseController.response({
         status: 400,
         message: 'empty or  incorrect logo format'

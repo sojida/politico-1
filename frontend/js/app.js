@@ -154,7 +154,7 @@ const sendServerRequest = (data, viewer='app-view') => {
           }
           if (!['signup', 'signin'].includes(url)) {
             if (jsonResponse.data[0].hqaddress) {
-              redirect(`party.html?partyid=${jsonResponse.data[0].id}`)
+              redirect(`party.html?id=${jsonResponse.data[0].id}`)
             } 
             throwError(jsonResponse.data[0].message, '.response');
             toast(jsonResponse.data[0].message);

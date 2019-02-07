@@ -58,7 +58,7 @@ app.post('/upload', (req, res) => {
   form.on('fileBegin', (name, file) => {
     file.path = `${__dirname}/frontend/img/upload/X${randName}${file.name}`;
   });
-  form.on('file', (name, file) => res.status(201).json({ url: `/img/upload/${randName}${file.name}` }));
+  form.on('file', (name, file) => res.status(201).json({ url: file.path.split('frontend')[1] }));
 });
 
 app.use('/api/v1/auth', authRouter);

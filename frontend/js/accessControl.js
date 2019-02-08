@@ -42,9 +42,8 @@ async function isLoggedIn() {
   if (!isLoggedIn && securePage().secure) {
     redirect('/access.html?page=signin');
   }
-  if (isLoggedIn && securePage().sPage === 'admin_dashboard') {
-    alert(securePage().sPage);
-    redirect('/access.html?page=signin');
+  if (isLoggedIn && securePage().sPage) {
+    alert('Welcome to Politico');
   }
 }
 /**

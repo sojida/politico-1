@@ -21,13 +21,12 @@ getOffice((error, officeInfo) => {
       officeAll.innerHTML = '';
       officeInfo.forEach((party) => {
         officeAll.innerHTML +=       `
-            <div class="offices_office">
-              <img src="./img/emmsdan-logo.png" />
+            <div class="offices_office" style="height: auto;">
               <h3>
-                <a href="./pages/office.html?id=${officeInfo.id}">${officeInfo.type}</a>
+                <a href="./pages/office.html?id=${officeInfo[0].id}">${officeInfo[0].type}</a>
               </h3>
               <div class="offices_office_options">
-                <span>${officeInfo.name}</span>
+                <span>${officeInfo[0].name}</span>
               </div>
             </div>`;
       })

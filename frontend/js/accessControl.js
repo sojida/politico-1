@@ -39,10 +39,10 @@ const toggleLoginForm = () => {
  */
 async function isLoggedIn() {
   const isLoggedIn = JSON.parse(localStorage.getItem('user'));
-  if (!isLoggedIn && securePage()) {
+  if (!isLoggedIn && securePage().secure) {
     redirect('/access.html?page=signin');
   }
-  if (isLoggedIn && securePage()) {
+  if (isLoggedIn && securePage().page === 'admin_dashboard') {
     redirect('/access.html?page=signin');
   }
 }

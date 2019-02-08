@@ -19,14 +19,15 @@ getOffice((error, officeInfo) => {
       `;
     } else {
       officeAll.innerHTML = '';
-      officeInfo.forEach((party) => {
+      officeInfo.forEach((office) => {
+          console.log(office);
         officeAll.innerHTML +=       `
             <div class="offices_office" style="height: auto;">
               <h3>
-                <a href="./pages/office.html?id=${officeInfo[0].id}">${officeInfo[0].type}</a>
+                <a href="./pages/office.html?id=${office.id}">${office.type}</a>
               </h3>
               <div class="offices_office_options">
-                <span>${officeInfo[0].name}</span>
+                <span>${office.name}</span>
               </div>
             </div>`;
       })

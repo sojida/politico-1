@@ -42,6 +42,9 @@ async function isLoggedIn() {
   if (!isLoggedIn && securePage()) {
     redirect('/access.html?page=signin');
   }
+  if (isLoggedIn && securePage()) {
+    redirect('/access.html?page=signin');
+  }
 }
 /**
  *
@@ -54,13 +57,15 @@ const redirect = (url) => {
 const securePage = () => {
   const pages = JSON.parse(localStorage.getItem('secure_page'));
   let secure = false;
+  let sPage = '';
   pages.forEach(page => {
     if (currentPage().includes(page)) {
+      sPage = page;
       secure = true;
       return;
     }
   });
-  return secure;
+  return { secure, sPage };
 }
 
 const currentPage = (path = 'full') => {

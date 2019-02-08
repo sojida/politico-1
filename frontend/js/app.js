@@ -1,4 +1,4 @@
-localStorage.setItem('secure_page', '[ "dashboard", "office"]');
+localStorage.setItem('secure_page', '[ "user_dashboard", "admin_dashboard", "office"]');
 const baseUrl = '/api/v1';
 
 window.addEventListener('load', (event) => {

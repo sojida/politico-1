@@ -42,7 +42,8 @@ async function isLoggedIn() {
   if (!isLoggedIn && securePage().secure) {
     redirect('/access.html?page=signin');
   }
-  if (isLoggedIn && securePage().page === 'admin_dashboard') {
+  if (isLoggedIn && securePage().sPage === 'admin_dashboard') {
+    alert(securePage().sPage);
     redirect('/access.html?page=signin');
   }
 }

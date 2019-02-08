@@ -16,3 +16,18 @@ const getParty = (callback) => {
             })
         })
 }
+
+const getOffice = (callback) => {
+    return fetch(`${apiNavigations('office')}/${getParamaterId() || '' }`, {
+    headers: {
+    'x-access-token': localStorage.getItem('token')
+    }})
+        .then((response) => {
+            return response.json().then((resp) => {
+                if (response.status === 404 || response.status === 401 ) {
+                    return callback(resp.error, null);
+                }
+                return callback(null, resp.data[0]);
+            })
+        })
+}

@@ -57,7 +57,9 @@ export default class officeController {
   * @returns promise
   */
   static create(request, response) {
-    const { type, name } = request.body;
+    const type = validate.trim(request.body.type.trim());
+    const name = validate.trim(request.body.name.trim());
+    
     if (!validate.isName(name)) {
       return responseController.response({
         status: 400,

@@ -4,4 +4,4 @@ const getUserInfo = () => {
   document.querySelector('#p-email').innerHTML= `${info.ue}`;
   document.querySelector('#p-phone').innerHTML= `${info.up}`;
 }
-getInfo()
+getUserInfo()
